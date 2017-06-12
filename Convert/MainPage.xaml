@@ -1,0 +1,178 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Convert.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <!-- LOCALIZATION NOTE:
+            To localize the displayed strings copy their values to appropriately named
+            keys in the app's neutral language resource file (AppResources.resx) then
+            replace the hard-coded text value between the attributes' quotation marks
+            with the binding clause whose path points to that string name.
+
+            For example:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            This binding points to the template's string resource named "ApplicationTitle".
+
+            Adding supported languages in the Project Properties tab will create a
+            new resx file per language that can carry the translated values of your
+            UI strings. The binding in these examples will cause the value of the
+            attributes to be drawn from the .resx file that matches the
+            CurrentUICulture of the app at run time.
+         -->
+
+         <!--Panorama control-->
+
+        <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+        <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
+        	<phone:Panorama Title="convert" Margin="0,0,-380,-601" HorizontalAlignment="Left" Width="480">
+        		<phone:Panorama.Background>
+        			<ImageBrush ImageSource="/PanoramaBackground.png"/>
+        		</phone:Panorama.Background>
+
+            <!--Panorama item one-->
+        		<phone:PanoramaItem x:Name="lengthPanoramaItem" Header="length" Height="466">
+        			<ScrollViewer HorizontalAlignment="Left" Width="420" Margin="0,0,0,-14">
+        				<StackPanel HorizontalAlignment="Left" Height="696" VerticalAlignment="Top" Width="410">
+        					<Button x:Name="lenghtFootButton" Content="foot/meter" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Height="72" Width="410" Click="lenghtFootButton_Click"/>
+        					<Button x:Name="lenghtInchButton" Content="inch/cm" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Width="390" Margin="10,0,0,0" Click="lenghtInchButton_Click"/>
+        					<Button x:Name="lengthMileButton" Content="mile/km" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Width="400" Click="lengthMileButton_Click"/>
+        					<Button x:Name="lengthNauticalButton" Content="nautical mile/km" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Width="400" Click="lengthNauticalButton_Click"/>
+        					<Button x:Name="lengthYardButton" Content="yard/meter" Margin="0,0,10,0" VerticalAlignment="Top" BorderBrush="Transparent" Click="lengthYardButton_Click"/>
+        					<Button x:Name="lengthChainButton" Content="chain/meter" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Width="410" Click="lengthChainButton_Click"/>
+        					<Button x:Name="lengthFathomButton" Content="fathom/meter" HorizontalAlignment="Left" BorderBrush="Transparent" Width="410" Height="72" Click="lengthFathomButton_Click"/>
+        					<Button x:Name="lengthAstroButton" Content="Astronomical unit/km" HorizontalAlignment="Left" VerticalAlignment="Top" Width="410" BorderBrush="Transparent" Click="lengthAstroButton_Click"/>
+        					<Button x:Name="lengthLightyearButton" Content="Lightyear/km" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Transparent" Width="410" Click="lengthLightyearButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        			<!--Single line list with text wrapping-->
+        		</phone:PanoramaItem>
+
+            <!--Panorama item two-->
+        		<phone:PanoramaItem x:Name="areaPanoramaItem" Header="area">
+                <!--Double line list with image placeholder and text wrapping using a floating header that scrolls with the content-->
+        			<ScrollViewer HorizontalAlignment="Left" Height="364" VerticalAlignment="Top" Width="422" Margin="0,0,-2,-54">
+        				<StackPanel HorizontalAlignment="Left" Height="622" VerticalAlignment="Top" Width="412">
+        					<Button x:Name="areaAcreButton" Content="acre/m^2" BorderBrush="Transparent" Click="areaAcreButton_Click"/>
+        					<Button x:Name="areaHectareButton" Content="hectare/m^2" BorderBrush="Transparent" Click="areaHectareButton_Click"/>
+        					<Button x:Name="areaSquareButton" Content="square(roofing)/m^2" BorderBrush="Transparent" Click="areaSquareButton_Click"/>
+        					<Button x:Name="areaFeetSqButton" Content="feet^2/m^2" BorderBrush="Transparent" Click="areaFeetSqButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+
+            <!--Panorama item three-->
+        		<phone:PanoramaItem x:Name="volumePanoramaItem" Header="volume" Orientation="Horizontal">
+                <!--Double wide Panorama with large image placeholders-->
+        			<ScrollViewer>
+        				<StackPanel Height="366" Width="410">
+        					<Button x:Name="volumeBarrelButton" Content="barrel(oil)/m^3" BorderBrush="Transparent" Click="volumeBarrelButton_Click"/>
+        					<Button x:Name="volumeOunceButton" Content="ounce(US)/m^3" BorderBrush="Transparent" Click="volumeOunceButton_Click"/>
+        					<Button x:Name="volumePintButton" Content="pint(imp)/m^3" BorderBrush="Transparent" Click="volumePintButton_Click"/>
+        					<Button x:Name="volumeQuartButton" Content="quart(US)" BorderBrush="Transparent" Click="volumeQuartButton_Click"/>
+        					<Button x:Name="volumeGalButton" Content="gal(US)/litre" BorderBrush="Transparent" Click="volumeGalButton_Click"/>
+        				</StackPanel>
+<!--Double wide Panorama with large image placeholders-->
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        		<phone:PanoramaItem x:Name="massPanoramaItem" Header="mass">
+        			<ScrollViewer HorizontalAlignment="Left" Height="380" VerticalAlignment="Top" Width="434" Margin="0,0,-14,0">
+        				<StackPanel Height="365" Width="428" RenderTransformOrigin="0.551,0.489">
+        					<Button x:Name="massKTButton" Content="carat(kt)/kg" BorderBrush="Transparent" Click="massKTButton_Click"/>
+        					<Button x:Name="massCTButton" Content="carat(ct)/kg" BorderBrush="Transparent" Click="massCTButton_Click"/>
+        					<Button x:Name="massEVButton" Content="electronVolt/kg" BorderBrush="Transparent" Click="massEVButton_Click"/>
+        					<Button x:Name="massOunceButton" Content="ounce/kg" BorderBrush="Transparent" Click="massOunceButton_Click"/>
+        					<Button x:Name="massPoundButton" Content="pound(lb)/kg" BorderBrush="Transparent" Click="massPoundButton_Click"/>
+        					<Button x:Name="massStoneButton" Content="stone/kg" BorderBrush="Transparent" Click="massStoneButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        		<phone:PanoramaItem x:Name="speedPanoramaItem" Header="speed">
+        			<ScrollViewer>
+        				<StackPanel Height="298" Width="385">
+        					<Button x:Name="speedRPMButton" Content="rpm/rads" BorderBrush="Transparent" Click="speedRPMButton_Click"/>
+        					<Button x:Name="speedmphButton" Content="mph/kph" BorderBrush="Transparent" Click="speedmphButton_Click"/>
+        					<Button x:Name="speedKnottsButton" Content="knotts/kph" BorderBrush="Transparent" Click="speedKnottsButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        		<phone:PanoramaItem x:Name="forcePanoramaItem" Header="force">
+        			<ScrollViewer>
+        				<StackPanel Height="313" Width="396">
+        					<Button x:Name="forcePoundButton" Content="pound force(lbf)/newton" BorderBrush="Transparent" Click="forcePoundButton_Click"/>
+        					<Button x:Name="forceAtmosphereButton" Content="atmosphere/pa" BorderBrush="Transparent" Click="forceAtmosphereButton_Click"/>
+        					<Button x:Name="forceBarButton" Content="bar/pa" BorderBrush="Transparent" Click="forceBarButton_Click"/>
+        					<Button x:Name="forceCMMButton" Content="cm of mercury/pa" BorderBrush="Transparent" Click="forceCMMButton_Click"/>
+        					<Button x:Name="forcePSIButton" Content="psi/pa" BorderBrush="Transparent"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        		<phone:PanoramaItem x:Name="energyPanoramaItem" Header="energy">
+        			<ScrollViewer>
+        				<StackPanel Height="367" Width="413">
+        					<Button x:Name="energyCalorieButton" Content="calorie/joule" BorderBrush="Transparent" Click="energyCalorieButton_Click"/>
+        					<Button x:Name="energyEVButton" Content="electronVolt/joule" BorderBrush="Transparent" Click="energyEVButton_Click"/>
+        					<Button x:Name="energyHPButton" Content="hp-hour/joule" BorderBrush="Transparent" Click="energyHPButton_Click"/>
+        					<Button x:Name="energyHPMButton" Content="hp(metric)/joule" BorderBrush="Transparent" Click="energyHPMButton_Click"/>
+        					<Button x:Name="energyFaradayButton" Content="faraday/coulomb amp-sec" BorderBrush="Transparent" Click="energyFaradayButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        		<phone:PanoramaItem x:Name="temperaturePanoramaItem" Header="temperature">
+        			<ScrollViewer HorizontalAlignment="Left" Height="376" VerticalAlignment="Top" Width="420">
+        				<StackPanel Height="363" Width="391">
+        					<Button x:Name="tempF2CButton" Content="Fahrenheit/celsius" BorderBrush="Transparent" Click="tempF2CButton_Click"/>
+        					<Button x:Name="tempK2CButton" Content="kelvin/celsius" BorderBrush="Transparent" Click="tempK2CButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        		<phone:PanoramaItem x:Name="radiationPanoramaItem" Header="radiation">
+        			<ScrollViewer Margin="0,-32,0,0">
+        				<StackPanel Height="393" Width="388">
+        					<Button x:Name="radiationCurieButton" Content="curie/bequerel" BorderBrush="Transparent" Click="radiationCurieButton_Click"/>
+        					<Button x:Name="radiationRutherfordButton" Content="rutherford/bequerel" BorderBrush="Transparent" Click="radiationRutherfordButton_Click"/>
+        					<Button x:Name="radiationRadButton" Content="rad/gray" BorderBrush="Transparent" Click="radiationRadButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        		<phone:PanoramaItem x:Name="AboutPanelItem" Header="about">
+        			<ScrollViewer>
+        				<StackPanel Height="361" Width="402">
+        					<Button x:Name="feedbackButton" Content="feedback" BorderBrush="Transparent" Click="feedbackButton_Click"/>
+        					<Button x:Name="websiteButton" Content="web site" BorderBrush="Transparent" Click="websiteButton_Click"/>
+        					<Button x:Name="rateButton" Content="rate this app" BorderBrush="Transparent" Click="rateButton_Click"/>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</phone:PanoramaItem>
+        	</phone:Panorama>
+        </Grid>
+        <ad:InneractiveAd
+				xmlns:ad="clr-namespace:Inneractive.Ad;assembly=Inneractive.Ad"
+				AppID="PymbleSoftware_convert_WP"
+				AdType="IaAdType_Banner"
+				ReloadTime="60"
+				x:Name="InneractiveXamlAd1" Margin="0,706,0,10" Loaded="InneractiveXamlAd1_Loaded"
+/>
+    </Grid>
+</phone:PhoneApplicationPage>
